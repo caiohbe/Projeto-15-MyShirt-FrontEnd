@@ -19,9 +19,10 @@ export default function Header() {
                 </>
             }
             
-            
             <Link to={"/checkout"}><img src={cartLogo} alt="Ícone carrinho" /></Link>
-            <span><img src={myShirtLogo} alt="Logo"/> {name ? `Bem vindo(a) ${name}` : ""}</span>
+            <Link to={"/"}>
+                <span><img src={myShirtLogo} alt="Logo"/> {name ? `Bem vindo(a) ${name}` : ""}</span>
+            </Link>
         </Top>
     )
 }
@@ -52,8 +53,8 @@ const Top = styled.div`
         color: #2A2522;
         position: fixed;
         left: 80px;
+        top: 4px;
         img {
-            display: flex;
             height: 35px;
             border-radius: 15px;
             margin-top: 0px;

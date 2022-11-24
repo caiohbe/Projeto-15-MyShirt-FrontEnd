@@ -13,7 +13,7 @@ function App() {
   const [name, setName] = useState("")
 
   return (
-    <UserContext.Provider value={token}>
+    <UserContext.Provider value={{token, name}}>
       <BrowserRouter>
         <GlobalStyle />
         <Routes>
@@ -22,6 +22,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/perfil" element={<PerfilPage />} />
+          
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

@@ -88,6 +88,10 @@ const Page = styled.div`
         font-weight: 700;
         color: #FFFFFF;
         margin-bottom: 35px;
+
+        &:hover {
+            filter: grayscale(20%);
+        }
     }
     h3 {
         color: #2A2522;

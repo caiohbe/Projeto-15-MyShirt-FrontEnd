@@ -18,7 +18,7 @@ function App() {
         <GlobalStyle />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage setToken={setToken} setName={setName}/>} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/perfil" element={<PerfilPage />} />

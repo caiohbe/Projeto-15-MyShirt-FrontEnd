@@ -42,7 +42,7 @@ export default function RegisterPage() {
                 <button type="submit">Cadastrar</button>
             </form>            
 
-            <Link to={'/'}>
+            <Link to={'/login'}>
                 <h3>Já tem uma conta? Entre agora!</h3>
             </Link>
         </Page>

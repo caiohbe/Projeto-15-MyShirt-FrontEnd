@@ -57,7 +57,7 @@ const Page = styled.div`
         border-radius: 10%;
     }
     form {
-        width: 80%;
+        width: 40%;
         display: flex;
         flex-direction: column;
         align-items: center;

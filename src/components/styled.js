@@ -64,21 +64,3 @@ button {
     margin-bottom:5px;
     border-radius: 5px;
 }`
-export const Button = styled.button`
-    font-family: 'Poppins', sans-serif;
-    font-weight:300;
-    font-size: 40px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height:80px;
-    width:400px;
-    color: #F2F5FA;
-    background-color: #CED2DC;
-    border: none;
-    margin-top:5px;
-    margin-bottom:10px;
-    border-radius: 5px;
-`

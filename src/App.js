@@ -8,6 +8,7 @@ import GlobalStyle from "./styles/globalStyles.js"
 import { useState } from "react"
 import UserContext from "./contexts/UserContext.js"
 import KartContext from "./contexts/KartContext.js"
+import FindAllPurchase from "./components/FindAllPurchase.js"
 
 function App() {
   const [token, setToken] = useState("")
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/history" element={<FindAllPurchase />} />
             <Route path="/perfil" element={<PerfilPage />} />
           </Routes>
         </BrowserRouter>

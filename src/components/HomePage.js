@@ -1,15 +1,11 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import KartContext from "../contexts/KartContext";
-import UserContext from "../contexts/UserContext";
-import { Container, ProductsGrid, Item, Button } from "./styled.js";
+import { Container, ProductsGrid, Item } from "./styled.js";
 
 export default function ProductsListPage() {
     const [itens, setItens] = useState(undefined);
-    const { token, setToken } = useContext(UserContext);
     const { kart, setKart } = useContext(KartContext);
-    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:5000/products")
@@ -20,15 +16,7 @@ export default function ProductsListPage() {
     if (!itens) {
         return <div>Carregando...</div>
     }
-    let destination;
-    function checkToken() {
-        if (token === undefined) {
-            destination = window.confirm("Para acessar o carrinho você precisa estar logado na sua conta. Você já possui uma conta?")
-            if (destination) { navigate("/sign-in") }
-            else (navigate("/sing-up"))
-        } else {navigate("/finalkart")}
-    }
-
+   
     return (
         <Container>
             <ProductsGrid>

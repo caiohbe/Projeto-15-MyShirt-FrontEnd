@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import perfilLogo from "../images/perfilLogo.png"
 import cartLogo from "../images/cartLogo.png"
 import myShirtLogo from "../images/myShirtLogo.png"
@@ -8,6 +8,15 @@ import { useContext } from "react"
 
 export default function Header() {
     const { name, token } = useContext(UserContext)
+    const navigate = useNavigate()
+    
+    function acessCart() {
+        if (!token) {
+            alert("É preciso estar logado para acessar o carrinho!")
+            return
+        }
+        navigate("/checkout")
+    }
 
     return (
         <Top>
@@ -19,7 +28,7 @@ export default function Header() {
                 </>
             }
             
-            <Link to={"/checkout"}><img src={cartLogo} alt="Ícone carrinho" /></Link>
+            <img onClick={acessCart} src={cartLogo} alt="Ícone carrinho" />
             
             <span><Link to={"/"}><img src={myShirtLogo} alt="Logo"/></Link> {name ? `Bem vindo(a) ${name}` : ""}</span>
             
@@ -43,6 +52,10 @@ const Top = styled.div`
         height: 26px;
         margin: 0px 10px;
         margin-top: 8px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
     
     padding-right: 80px;

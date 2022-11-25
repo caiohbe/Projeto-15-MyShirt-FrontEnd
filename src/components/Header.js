@@ -20,9 +20,9 @@ export default function Header() {
             }
             
             <Link to={"/checkout"}><img src={cartLogo} alt="Ícone carrinho" /></Link>
-            <Link to={"/"}>
-                <span><img src={myShirtLogo} alt="Logo"/> {name ? `Bem vindo(a) ${name}` : ""}</span>
-            </Link>
+            
+            <span><Link to={"/"}><img src={myShirtLogo} alt="Logo"/></Link> {name ? `Bem vindo(a) ${name}` : ""}</span>
+            
         </Top>
     )
 }

@@ -12,10 +12,6 @@ export default function CheckoutPage() {
     const { kart, setKart } = useContext(KartContext);
     const navigate = useNavigate();
     let newPurchase;
-    
-    console.log(token)
-    
-    console.log(kart)
 
     if (kart.length === 0) {
         return <div>Você não escolheu nenhuma camiseta :/</div>
@@ -23,26 +19,19 @@ export default function CheckoutPage() {
 
     function qtt(arr) {
         const countShirt = Object.create(null);
-
         for (const element of arr) {
             countShirt[element] = (countShirt[element] || 0) + 1;
         }
-
         newPurchase = Object.entries(countShirt).map(([value, count]) => ({
             nameProduct: value,
             qtt: count
         }));
     }
     qtt(kart)
-    console.log("Aqui vai o carrinho sem repetição")
-    console.log(newPurchase)
-    console.log("Aqui vai o allitens")
-    console.log(allItens)
-
+    
     let render = [];
     for (let i = 0; i < newPurchase.length; i++) {
         let itemF = newPurchase[i]
-        console.log(itemF)
         for (let index = 0; index < allItens.length; index++) {
             let itemR = allItens[index]
             if (itemF.nameProduct === itemR.product) {
@@ -53,15 +42,10 @@ export default function CheckoutPage() {
                     qtt: itemF.qtt,
                     total: (itemF.qtt * itemR.price)
                 }
-                console.log("Teste de formação do objeto")
-                console.log(allItens[index]);
-                console.log(objectToRender);
                 render.push(objectToRender)
             }
         }
     }
-    console.log("aqui vai o render")
-    console.log(render)
 
     function confirmPurchase() {
         const body = {
@@ -72,8 +56,6 @@ export default function CheckoutPage() {
                 "Authorization": `Bearer ${token}`
             }
         }
-        console.log(body)
-        console.log(config)
         axios.post("http://localhost:5000/purchases", body, config)
             .then(res => {
                 alert("Sua compra foi confirmada!")

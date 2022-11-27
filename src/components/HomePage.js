@@ -1,5 +1,10 @@
+import Header from "./Header.js"
+
 export default function HomePage() {
     return (
-        <div>HomePage</div>
+        <>
+            <Header />
+            <div>HomePage</div>
+        </>
     )
 }

@@ -42,7 +42,7 @@ export default function RegisterPage() {
                 <button type="submit">Cadastrar</button>
             </form>            
 
-            <Link to={'/'}>
+            <Link to={'/login'}>
                 <h3>Já tem uma conta? Entre agora!</h3>
             </Link>
         </Page>
@@ -60,7 +60,7 @@ const Page = styled.div`
         border-radius: 10%;
     }
     form {
-        width: 80%;
+        width: 40%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -88,6 +88,10 @@ const Page = styled.div`
         font-weight: 700;
         color: #FFFFFF;
         margin-bottom: 35px;
+
+        &:hover {
+            filter: grayscale(20%);
+        }
     }
     h3 {
         color: #2A2522;

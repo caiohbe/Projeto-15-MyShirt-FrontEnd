@@ -7,24 +7,29 @@ import PerfilPage from "./components/PerfilPage.js"
 import GlobalStyle from "./styles/globalStyles.js"
 import { useState } from "react"
 import UserContext from "./contexts/UserContext.js"
+import KartContext from "./contexts/KartContext.js"
+import FindAllPurchase from "./components/FindAllPurchase.js"
 
 function App() {
   const [token, setToken] = useState("")
   const [name, setName] = useState("")
-
+  const [kart, setKart] = useState([])
   return (
+
     <UserContext.Provider value={{token, name}}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage setToken={setToken} setName={setName}/>} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/perfil" element={<PerfilPage />} />
-          
-        </Routes>
-      </BrowserRouter>
+      <KartContext.Provider value={{ kart, setKart }}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage setToken={setToken} setName={setName}/>} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/history" element={<FindAllPurchase />} />
+            <Route path="/perfil" element={<PerfilPage />} />
+          </Routes>
+        </BrowserRouter>
+      </KartContext.Provider>
     </UserContext.Provider>
   )
 }

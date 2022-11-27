@@ -27,7 +27,7 @@ flex-wrap: wrap;
 export const Item = styled.div`
 background-color: #F2F5FA;
 width: 250px;
-height: 320px;
+height: 370px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -39,7 +39,6 @@ font-family: 'Poppins', sans-serif;
 font-weight:300;
 font-size: 18px;
 line-height: 20px;
-
 color: #2A2522;
 p{
     font-weight:400;
@@ -47,14 +46,14 @@ p{
 img {
     height:190px;
     width:190px;
-    margin-top:5px;
+    margin-top:10px;
     margin-bottom:5px;
     border-radius: 5px;
 }
 button {
     font-family: 'Poppins', sans-serif;
     font-weight:400;
-    height:40px;
+    height:45px;
     width:150px;
     margin-bottom:5px;
     border-radius: 5px;
@@ -65,23 +64,3 @@ button {
     margin-bottom:5px;
     border-radius: 5px;
 }`
-export const Button = styled.div`
-    font-family: 'Poppins', sans-serif;
-    font-weight:300;
-    font-size: 40px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height:80px;
-    width:400px;
-    margin-bottom:5px;
-    border-radius: 5px;
-    color: #F2F5FA;
-    background-color: #CED2DC;
-    border: none;
-    margin-top:5px;
-    margin-bottom:5px;
-    border-radius: 5px;
-`

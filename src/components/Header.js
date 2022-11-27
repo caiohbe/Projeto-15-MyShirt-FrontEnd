@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { Link, useNavigate } from "react-router-dom"
-import perfilLogo from "../images/perfilLogo.png"
 import cartLogo from "../images/cartLogo.png"
 import myShirtLogo from "../images/myShirtLogo.png"
 import UserContext from "../contexts/UserContext"
@@ -9,7 +8,7 @@ import { useContext } from "react"
 export default function Header() {
     const { name, token } = useContext(UserContext)
     const navigate = useNavigate()
-    
+
     function acessCart() {
         if (!token) {
             alert("É preciso estar logado para acessar o carrinho!")
@@ -20,18 +19,16 @@ export default function Header() {
 
     return (
         <Top>
-            {token ? 
-                <Link to={"/perfil"}><img src={perfilLogo} alt="Ícone perfil" /></Link> : 
-                <>
-                    <StyledLink token={token} to={"/login"}>Entrar</StyledLink>
-                    <StyledLink token={token} to={"/register"}>Cadastrar</StyledLink>
-                </>
-            }
-            
+            <>
+                <StyledLink token={token} to={"/login"}>Entrar</StyledLink>
+                <StyledLink token={token} to={"/register"}>Cadastrar</StyledLink>
+            </>
+
+
             <img onClick={acessCart} src={cartLogo} alt="Ícone carrinho" />
-            
-            <span><Link to={"/"}><img src={myShirtLogo} alt="Logo"/></Link> {name ? `Bem vindo(a) ${name}` : ""}</span>
-            
+
+            <span><Link to={"/"}><img src={myShirtLogo} alt="Logo" /></Link> {name ? `Bem vindo(a) ${name}` : ""}</span>
+
         </Top>
     )
 }

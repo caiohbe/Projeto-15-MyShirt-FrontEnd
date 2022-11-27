@@ -20,6 +20,7 @@ justify-content: space-around;
 width: 530px;
 height:100%;
 flex-wrap: wrap;
+margin-top:30px;
 `
 
 export const Item = styled.div`

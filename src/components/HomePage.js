@@ -2,8 +2,9 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import KartContext from "../contexts/KartContext";
 import { Container, ProductsGrid, Item } from "./styled.js";
+import Header from "./Header.js"
 
-export default function ProductsListPage() {
+export default function HomePage() {
     const [itens, setItens] = useState(undefined);
     const { kart, setKart } = useContext(KartContext);
 
@@ -18,7 +19,9 @@ export default function ProductsListPage() {
     }
    
     return (
-        <Container>
+        <>
+            <Header />
+            <Container>
             <ProductsGrid>
                 {(itens.map((i) => (<Item key={i._id}>
                     <img src={i.imageURL} alt={i.product} />
@@ -28,5 +31,6 @@ export default function ProductsListPage() {
                 </Item>)))}
             </ProductsGrid>
         </Container>
+        </>
     )
 }

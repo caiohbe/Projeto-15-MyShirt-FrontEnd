@@ -15,13 +15,14 @@ function App() {
   const [name, setName] = useState("")
   const [kart, setKart] = useState([])
   return (
-    <UserContext.Provider value={token}>
+
+    <UserContext.Provider value={{token, name}}>
       <KartContext.Provider value={{ kart, setKart }}>
         <BrowserRouter>
           <GlobalStyle />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage setToken={setToken} setName={setName}/>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/history" element={<FindAllPurchase />} />

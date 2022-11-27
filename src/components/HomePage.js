@@ -28,7 +28,7 @@ export default function HomePage() {
                     <img src={ai.imageURL} alt={ai.product} />
                     <div><p>{ai.product}</p></div>
                     <div>Price R$ {ai.price},00</div>
-                    <button onClick={() => setKart([...kart, ai._id])}>Add to cart</button>
+                    <button onClick={() => setKart([...kart, ai.product])}>Add to cart</button>
                 </Item>)))}
             </ProductsGrid>
         </Container>

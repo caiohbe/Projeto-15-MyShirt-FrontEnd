@@ -12,9 +12,9 @@ export default function CheckoutPage() {
     const { kart, setKart } = useContext(KartContext);
     const navigate = useNavigate();
     let newPurchase;
-    const filteredPurchase = [... new Set(kart)]
+    
     console.log(token)
-    console.log(filteredPurchase)
+    
     console.log(kart)
 
     if (kart.length === 0) {
@@ -29,11 +29,12 @@ export default function CheckoutPage() {
         }
 
         newPurchase = Object.entries(countShirt).map(([value, count]) => ({
-            idProduct: value,
+            nameProduct: value,
             qtt: count
         }));
     }
     qtt(kart)
+    console.log("Aqui vai o carrinho sem repetição")
     console.log(newPurchase)
     console.log("Aqui vai o allitens")
     console.log(allItens)
@@ -44,7 +45,7 @@ export default function CheckoutPage() {
         console.log(itemF)
         for (let index = 0; index < allItens.length; index++) {
             let itemR = allItens[index]
-            if (itemF.idProduct === itemR._id) {
+            if (itemF.nameProduct === itemR.product) {
                 let objectToRender = {
                     id: itemR._id,
                     name: itemR.product,
@@ -74,12 +75,15 @@ export default function CheckoutPage() {
         console.log(body)
         console.log(config)
         axios.post("http://localhost:5000/purchases", body, config)
-            .then(res => alert("Sua compra foi confirmada!"))
+            .then(res => {
+                alert("Sua compra foi confirmada!")
+                setKart([])
+                navigate("/")})
             .catch(err => console.log(err.response.data))
     }
 
     function cancelPurchase() {
-        setKart([""])
+        setKart([])
         alert("Sua compra foi cancelada :( ")
         navigate("/")
     }
@@ -91,8 +95,7 @@ export default function CheckoutPage() {
                 <h1>Produtos adicionados ao carrinho</h1>
                 <div>
                     {(render.map((r) => (<ItemKart key={r._id}>
-                        <div><img src={r.imgUrl} alt={r.product} /></div>
-                    
+                        <div><img src={r.imgUrl} alt={r.product} /></div>                    
                     <div>
                         <p>{r.name}</p>
                         <p>Quantidade: {r.qtt}</p>

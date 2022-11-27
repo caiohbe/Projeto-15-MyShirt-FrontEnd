@@ -13,7 +13,7 @@ function App() {
   const [token, setToken] = useState("")
   const [name, setName] = useState("")
   const [kart, setKart] = useState([])
-  const [allItens, setAllItens] = useState(undefined)
+  const [allItens, setAllItens] = useState([])
   return (
 
     <UserContext.Provider value={{token, name}}>

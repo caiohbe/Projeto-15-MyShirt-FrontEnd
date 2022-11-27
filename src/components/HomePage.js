@@ -5,16 +5,17 @@ import { Container, ProductsGrid, Item } from "./styled.js";
 import Header from "./Header.js"
 
 export default function HomePage() {
-    const [itens, setItens] = useState(undefined);
+    const {allItens, setAllItens} = useContext(KartContext);
     const { kart, setKart } = useContext(KartContext);
-
+    console.log(kart)
+    console.log(allItens)
     useEffect(() => {
         axios.get("http://localhost:5000/products")
-            .then(res => setItens(res.data))
+            .then(res => setAllItens(res.data))
             .catch(err => console.log(err.response.data))
     }, [])
-    
-    if (!itens) {
+    console.log(allItens)
+    if (!allItens) {
         return <div>Carregando...</div>
     }
    
@@ -23,11 +24,11 @@ export default function HomePage() {
             <Header />
             <Container>
             <ProductsGrid>
-                {(itens.map((i) => (<Item key={i._id}>
-                    <img src={i.imageURL} alt={i.product} />
-                    <div><p>{i.product}</p></div>
-                    <div>Price R$ {i.price},00</div>
-                    <button onClick={() => setKart([...kart, i._id])}>Add to cart</button>
+                {(allItens.map((ai) => (<Item key={ai._id}>
+                    <img src={ai.imageURL} alt={ai.product} />
+                    <div><p>{ai.product}</p></div>
+                    <div>Price R$ {ai.price},00</div>
+                    <button onClick={() => setKart([...kart, ai._id])}>Add to cart</button>
                 </Item>)))}
             </ProductsGrid>
         </Container>

@@ -8,16 +8,16 @@ import GlobalStyle from "./styles/globalStyles.js"
 import { useState } from "react"
 import UserContext from "./contexts/UserContext.js"
 import KartContext from "./contexts/KartContext.js"
-import FindAllPurchase from "./components/FindAllPurchase.js"
 
 function App() {
   const [token, setToken] = useState("")
   const [name, setName] = useState("")
   const [kart, setKart] = useState([])
+  const [allItens, setAllItens] = useState(undefined)
   return (
 
     <UserContext.Provider value={{token, name}}>
-      <KartContext.Provider value={{ kart, setKart }}>
+      <KartContext.Provider value={{ kart, setKart, allItens, setAllItens }}>
         <BrowserRouter>
           <GlobalStyle />
           <Routes>
@@ -25,7 +25,6 @@ function App() {
             <Route path="/login" element={<LoginPage setToken={setToken} setName={setName}/>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/history" element={<FindAllPurchase />} />
             <Route path="/perfil" element={<PerfilPage />} />
           </Routes>
         </BrowserRouter>

@@ -23,7 +23,7 @@ export default function RegisterPage() {
             confirmPassword
         }
 
-        axios.post("http://localhost:5000/sign-up", registerObj)
+        axios.post("https://myshirt-api.onrender.com/sign-up", registerObj)
         .then(() => navigate('/login'))
         .catch(err => alert(err.response.data))
     }

@@ -56,7 +56,7 @@ export default function CheckoutPage() {
                 "Authorization": `Bearer ${token}`
             }
         }
-        axios.post("http://localhost:5000/purchases", body, config)
+        axios.post("https://myshirt-api.onrender.com/purchases", body, config)
             .then(res => {
                 alert("Sua compra foi confirmada!")
                 setKart([])

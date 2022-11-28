@@ -17,7 +17,7 @@ export default function LoginPage({setToken, setName}) {
             password
         }
 
-        axios.post("http://localhost:5000/sign-in", loginObj)
+        axios.post("https://myshirt-api.onrender.com/sign-in", loginObj)
         .then((res) => {
             setToken(res.data.token)
             setName(res.data.name)

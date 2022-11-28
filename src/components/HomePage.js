@@ -8,7 +8,7 @@ export default function HomePage() {
     const { allItens, setAllItens } = useContext(KartContext);
     const { kart, setKart } = useContext(KartContext);
     useEffect(() => {
-        axios.get("http://localhost:5000/products")
+        axios.get("https://myshirt-api.onrender.com/products")
             .then(res => setAllItens(res.data))
             .catch(err => console.log(err.response.data))
     }, [])

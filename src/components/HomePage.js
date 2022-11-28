@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import KartContext from "../contexts/KartContext";
 import { Container, ProductsGrid, Item } from "./styled.js";
 import Header from "./Header.js"
@@ -16,6 +16,11 @@ export default function HomePage() {
         return <div>Carregando...</div>
     }
 
+    function addToKart(product) {
+        setKart([...kart, product])
+        alert("Item adicionado ao carrinho")
+    }
+
     return (
         <>
             <Header />
@@ -25,7 +30,7 @@ export default function HomePage() {
                         <img src={ai.imageURL} alt={ai.product} />
                         <div><p>{ai.product}</p></div>
                         <div>Price R$ {ai.price},00</div>
-                        <button onClick={() => setKart([...kart, ai.product])}>Add to cart</button>
+                        <button onClick={() => addToKart(ai.product)}>Add to cart</button>
                     </Item>)))}
                 </ProductsGrid>
             </Container>
